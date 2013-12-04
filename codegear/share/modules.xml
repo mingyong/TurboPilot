@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XML>
+    <Module Name="GcsComms" Priority="20" StackSize="1024" MsgQue="4">
+      <Desc>Module for communicate with ground control system</Desc>
+    </Module>
+
+    <Module Name="Log" Priority="21" StackSize="1024" MsgQue="4">
+        <Desc>Module for log</Desc>
+    </Module>
+
+    <Module Name="Battery" Priority="22" StackSize="1024" MsgQue="4">
+        <Desc>Module for battery check</Desc>
+    </Module>
+
+    <Module Name="GpsReceiver" Priority="23" StackSize="1024" MsgQue="4">
+        <Desc>Module for GPS Receiver</Desc>
+    </Module>
+
+    <Module Name="Telemetry" Priority="24" StackSize="1024" MsgQue="4">
+        <Desc>Module for telemetry</Desc>
+    </Module>
+</XML>

@@ -1,0 +1,42 @@
+# Main CMakeLists.txt to build the FLTK project using CMake (www.cmake.org)
+# Written by Andy Cedilnik and Julien Jomier
+
+PROJECT(TurboPilot)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+
+# The TurboPilot version
+SET(TP_VERSION_MAJOR "1")
+SET(TP_VERSION_MINOR "1")
+SET(TP_VERSION "${TP_VERSION_MAJOR}.${TP_VERSION_MINOR}")
+
+SET(TP_LIBRARIES "uavobj mudule")
+
+# Executables and libraries should just go to bin
+SET(EXECUTABLE_OUTPUT_PATH "${TP_BINARY_DIR}/bin" CACHE INTERNAL 
+  "Where to put the executables for TurboPilot"
+  )
+SET(LIBRARY_OUTPUT_PATH "${TP_BINARY_DIR}/bin" CACHE INTERNAL 
+  "Where to put the libraries for TurboPilot"
+  )
+
+# Allow building shared libraries
+OPTION(BUILD_SHARED_LIBS "Build TurboPilot as a shared library" OFF)
+
+# Search for modules in the TurboPilot source dir first
+SET(CMAKE_MODULE_PATH "${TP_SOURCE_DIR}/CMake")
+
+#-----------------------------------------------------------------------------
+# Test for some required system information.
+FIND_PACKAGE(Threads)
+SET (CMAKE_USE_PTHREADS 
+  "${CMAKE_USE_PTHREADS_INIT}" CACHE BOOL "Use the pthreads library.")
+
+# We need ansi c-flags, especially on HP
+SET(CMAKE_C_FLAGS "${CMAKE_ANSI_CFLAGS} ${CMAKE_C_FLAGS}")
+SET(CMAKE_REQUIRED_FLAGS ${CMAKE_ANSI_CFLAGS})
+
+INSTALL_FILES(/include/FL FILES ${TP_HEADER_FILES})
+INSTALL_FILES(/lib/FLTK-${TP_VERSION} FILES "${TP_SOURCE_DIR}/CMake/FLTKUse.cmake")
+INSTALL_FILES(/lib/FLTK-${TP_VERSION} FILES "${TP_BINARY_DIR}/FLTKBuildSettings.cmake")
+INSTALL_FILES(/lib/FLTK-${TP_VERSION} FILES "${TP_BINARY_DIR}/FLTKLibraryDepends.cmake")
+INSTALL_FILES(/lib/FLTK-${TP_VERSION} FILES "${TP_BINARY_DIR}/CMake/FLTKConfig.cmake")

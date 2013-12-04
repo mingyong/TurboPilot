@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XML>
+    <UavObj Name="Attitude" InstCnt="1" Setting="FALSE">
+        <Desc>current attitude infomation of aircraft</Desc>
+        <Access gcs="r" flight="rw"/>
+        <Member name="CurRoll" units="deg" type="FP32" />
+        <Member name="CurPitch" units="deg" type="FP32" />
+        <Member name="CurYaw" units="deg" type="FP32" />
+        <Member name="CurHeading" units="deg" type="FP32" />
+        <Member name="HeadingDot" units="deg/s" type="FP32" />
+        <Member name="CurRollDot" units="deg" type="FP32" />
+        <Member name="CurPitchDot" units="deg" type="FP32" />
+        <Member name="CurYawDot" units="deg" type="FP32" />
+    </UavObj>
+    <UavObj Name="FlyCmdItem" InstCnt="1000" Setting="TRUE">
+        <Desc>the item define of fly command</Desc>
+        <Access gcs="rw" flight="rw"/>
+        <Member name="CmdCode" units="" type="S16" note="命令编码" />
+        <Member name="Para1Type" units="" type="U8" note="参数1类型" />
+        <Member name="Para1ValueA" units="" type="S32" note="参数1组成值A" />
+        <Member name="Para1ValueB" units="" type="S32" note="参数1组成值B" />
+        <Member name="Para2Type" units="" type="U8" note="参数2类型" />
+        <Member name="Para2ValueA" units="" type="S32" note="参数2组成值A" />
+        <Member name="Para2ValueB" units="" type="S32" note="参数2组成值B" />
+    </UavObj>
+</XML>

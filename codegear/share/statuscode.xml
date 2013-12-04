@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XML>
+    <Code name="OK" note="command successfully completed"/>
+    <Code name="BAD_VAR_ID" note="invalid field identifier"/>
+    <Code name="CANT_SAVE_VAR" note="field cannot be written into flash"/>
+    <Code name="CANT_CHANGE_VAR_INFLIGHT" note="field cannot be changed while in flight"/>
+    <Code name="INVALID_TYPEID" note=""/>
+    <Code name="INVALID_MEMID" note=""/>
+    <Code name="INVALID_INSTID" note=""/>
+    <Code name="VAR_READ_ONLY" note=""/>
+</XML>
+
+

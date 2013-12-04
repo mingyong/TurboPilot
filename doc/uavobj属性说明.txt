@@ -1,0 +1,27 @@
+UAV Object XML描述说明
+(1) Name，   类型名称
+(2) Desc，   类型描述说明
+(3) InstCnt，使用该类型定义的实例个数
+(4) Setting, 用于指示是否为配置类型，如果是则需要在自驾仪初始化时从SD/Flash中加载参数
+(5) Access， 用于指示访问模式，只读还是可写("r"/"rw")
+(6) The Member entries define the properties of each member. 
+    成员变量属性说明
+    1) name         变量名称
+    2) units        对应的物理意义单位  
+    3) type         数据类型  
+    4) elements     (可选)成员变量为数组类型，used to define array fields.
+        考虑代码生成器的简化和向MP模式的兼容，考虑禁止使用该项
+        
+    5) note         (可选)注释解说
+
+
+UAV Object 编码组成：
+三大部分：
+(1) TypeID:     标识UAV Object所属类型的编号
+(2) MemberID:   标识UAV Object成员变量的编号
+(3) InstID:     标识UAV Object实例编号，支持同类型UAV Object数组
+
+考虑与MP的FieldID策略兼容，
+
+通过FieldID可以定位指定的UAV Object实例中的指定成员变量
+
